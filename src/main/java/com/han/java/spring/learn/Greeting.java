@@ -1,3 +1,5 @@
+package com.han.java.spring.learn;
+
 /**
  * Created by yhan on 3/8/15.
  */
