@@ -16,8 +16,13 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                String.format(template, name));
+    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name,
+                             @RequestParam(value="suffix", defaultValue="Mars") String suffix) {
+        if (Math.random() > 0.1)
+            return new Greeting(counter.incrementAndGet(),
+                String.format(template, name), "Juniper");
+        else
+            return new Greeting(counter.incrementAndGet(),
+                    String.format(template, name), suffix);
     }
 }
